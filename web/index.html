@@ -7,8 +7,8 @@
   <body>
     <h1>hello world 111</h1>
     <script>
-      let url = "wss://javascript.info/chat"
-      //let url = `ws://${location.hostname}/ws`;
+      //let url = "wss://javascript.info/chat"
+      let url = `wss://${location.hostname}/ws`;
       alert(url)
       let socket = new WebSocket(url);
       socket.onopen = function() {
