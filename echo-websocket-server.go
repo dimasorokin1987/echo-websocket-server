@@ -2,6 +2,7 @@ package main
 
 import (
   "fmt"
+  "os"
   //"io"
   "net/http"
   "log"
@@ -32,7 +33,7 @@ func main() {
   //http.Handle("/echo", websocket.Handler(EchoServer))
   // err := http.ListenAndServe(":12345", nil)
   http.Handle("/", indexHandler)
-  err := http.ListenAndServe(":80", nil)
+  err := http.ListenAndServe(":"+os.Getenv("PORT"), nil)
   if err != nil {
     log.Fatalln("ListenAndServe: " + err.Error())
   }
