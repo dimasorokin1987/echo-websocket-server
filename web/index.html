@@ -7,8 +7,10 @@
   <body>
     <h1>hello world 111</h1>
     <script>
-      alert(location.hostname)
-      let socket = new WebSocket(`ws://${location.hostname}/ws`);
+      let url = "wss://javascript.info/chat"
+      //let url = `ws://${location.hostname}/ws`;
+      alert(url)
+      let socket = new WebSocket(url);
       socket.onopen = function() {
         alert("Соединение установлено.");
       };
