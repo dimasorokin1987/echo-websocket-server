@@ -33,7 +33,7 @@ func EchoServer(ws *websocket.Conn) {
 }
 
 func main() {
-  http.Handle("/", http.FileServer(http.Dir(*directory)))
+  http.Handle("/", http.FileServer(http.Dir(directory)))
   http.Handle("/echo", websocket.Handler(EchoServer))
   // err := http.ListenAndServe(":12345", nil)
   http.Handle("/test", http.HandlerFunc(indexHandler))
