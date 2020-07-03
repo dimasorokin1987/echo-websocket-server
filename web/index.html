@@ -27,7 +27,7 @@
       };
 
       socket.onerror = function(error) {
-        alert(error);
+        alert(JSON.stringify(error));
       };
       
       socket.send("Привет");
