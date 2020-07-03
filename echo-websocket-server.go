@@ -22,7 +22,7 @@ func main() {
  http.Handle("/echo", websocket.Handler(EchoServer))
  // err := http.ListenAndServe(":12345", nil)
  http.HandleFunc("/",indexHandler)
- http.ListenAndServe(":80", nil)
+ err := http.ListenAndServe(":80", nil)
  if err != nil {
   log.Fatalln("ListenAndServe: " + err.Error())
  }
