@@ -2,7 +2,7 @@ package main
 
 import (
   "fmt"
-  "io"
+  //"io"
   "net/http"
   "log"
   //"golang.org/x/net/websocket"
