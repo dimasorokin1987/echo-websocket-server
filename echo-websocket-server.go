@@ -9,6 +9,10 @@ import (
   "golang.org/x/net/websocket"
 )
 
+const (
+  directory = "./web"
+)
+
 func indexHandler(w http.ResponseWriter, r *http.Request) {
 //   if origin := r.Header.Get("Origin"); origin != "" {
 //     w.Header().Set("Access-Control-Allow-Origin", origin)
@@ -29,9 +33,10 @@ func EchoServer(ws *websocket.Conn) {
 }
 
 func main() {
+  http.Handle("/", http.FileServer(http.Dir(*directory)))
   http.Handle("/echo", websocket.Handler(EchoServer))
   // err := http.ListenAndServe(":12345", nil)
-  http.Handle("/", http.HandlerFunc(indexHandler))
+  http.Handle("/test", http.HandlerFunc(indexHandler))
   err := http.ListenAndServe(":"+os.Getenv("PORT"), nil)
   if err != nil {
     log.Fatalln("ListenAndServe: " + err.Error())
