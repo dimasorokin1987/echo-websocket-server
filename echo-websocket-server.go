@@ -8,7 +8,7 @@ import (
   //"golang.org/x/net/websocket"
 )
 
-indexHandler := http.HandlerFunc(func(w http.ResponseWriter, r *http.Request){
+var indexHandler = http.HandlerFunc(func(w http.ResponseWriter, r *http.Request){
   if origin := r.Header.Get("Origin"); origin != "" {
     w.Header().Set("Access-Control-Allow-Origin", origin)
     w.Header().Set("Access-Control-Allow-Methods", "POST, GET, OPTIONS, PUT, DELETE")
