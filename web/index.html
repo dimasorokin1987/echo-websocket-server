@@ -8,30 +8,31 @@
     <h1>hello world 111</h1>
     <script>
       //let url = "wss://javascript.info/chat"
-      let url = `wss://${location.hostname}/ws`;
+      let url = `wss://${location.hostname}/ws`
       alert(url)
-      let socket = new WebSocket(url);
+      let socket = new WebSocket(url)
       socket.onopen = function() {
-        alert("Connected.");
-        socket.send("hello");
-      };
+        alert("Connected.")
+        socket.send("hello")
+        alert("sended: hello")
+      }
 
       socket.onclose = function(event) {
         if (event.wasClean) {
-          alert('Connection close clean');
+          alert("Connection close clean")
         } else {
-          alert('Connection aborted'); // например, "убит" процесс сервера
+          alert('Connection aborted') // например, "убит" процесс сервера
         }
-        alert('Code: ' + event.code + ' reason: ' + event.reason);
-      };
+        alert('Code: ' + event.code + ' reason: ' + event.reason)
+      }
 
       socket.onmessage = function(event) {
-        alert("Data received" + event.data);
-      };
+        alert("Data received: " + event.data)
+      }
 
       socket.onerror = function(error) {
-        alert(JSON.stringify(error));
-      };
+        alert(JSON.stringify(error))
+      }
       
     </script>
   </body>
